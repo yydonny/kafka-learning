@@ -1,0 +1,26 @@
+
+spring.profiles.active: development
+
+---
+spring.profiles: development
+
+server.port: 7777
+
+# https://kafka.apache.org/documentation.html#producerconfigs
+kafka:
+  topic: test-topic-a
+  producer:
+    bootstrap.servers: localhost:9092 # java client doesn't talk to zookeeper
+    client.id: kf-ingester
+    max.block.ms: 2000
+
+#    acks: all
+#    max.in.flight.requests.per.connection: 1
+#    batch.size: 8192 # maximum bytes for each message batch
+#    linger.ms: 1000 # max time waiting a batch to fill
+#    buffer.memory: 33554432
+
+logging:
+  pattern.console: '%-20(%d{HH:mm:ss} [%thread]) %highlight(%-5level) %cyan(%logger{32}): %m%n'
+  level:
+    org.apache.kafka.clients.NetworkClient: ERROR

@@ -1,0 +1,24 @@
+
+spring.profiles.active: development
+
+---
+spring.profiles: development
+
+# http://kafka.apache.org/10/javadoc/index.html?org/apache/kafka/clients/consumer/KafkaConsumer.html
+kafka:
+  topic: test-topic-a
+  partitions: 0,1,4
+  consumer:
+    client.id: kikikaka
+    group.id: yangyd-consumer-demo-2
+    bootstrap.servers: localhost:9092 # java client doesn't talk to zookeeper
+
+spring.datasource:
+  type: com.zaxxer.hikari.HikariDataSource
+  url: 'jdbc:postgresql://localhost/kfdb?ssl=true'
+  username: yangyd
+  password: asdf1234
+
+logging:
+  pattern.console: '%-20(%d{HH:mm:ss} [%thread]) %highlight(%-5level) %cyan(%logger{32}): %m%n'
+
