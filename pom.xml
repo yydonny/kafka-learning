@@ -17,5 +17,8 @@
         <module>processor</module>
         <module>ingester</module>
         <module>commons</module>
+        <module>akkacluster1</module>
+        <module>akkacluster2</module>
+        <module>tf-back</module>
     </modules>
 </project>
